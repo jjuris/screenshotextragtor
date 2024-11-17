@@ -4,6 +4,7 @@ import (
 	"flag"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"testing"
 )
 
@@ -26,6 +27,33 @@ func TestExtractScreenshot(t *testing.T) {
 	// Check if the output file exists
 	if _, err := os.Stat(outputFile); os.IsNotExist(err) {
 		t.Errorf("Screenshot file was not created")
+	}
+}
+
+func TestMainFunction(t *testing.T) {
+	// Mock video file (assuming a small test video file is available)
+	videoFile := "test_video.mp4"
+
+	// Create a temporary output directory
+	outputDir, err := os.MkdirTemp("", "output")
+	if err != nil {
+		t.Fatalf("Failed to create temp output directory: %v", err)
+	}
+	defer os.RemoveAll(outputDir)
+
+	// Mock command-line arguments
+	os.Args = []string{"cmd", "-i", videoFile, "-o", outputDir, "-c", "1", "-t", "1", "-d"}
+
+	// Reset command-line flags
+	flag.CommandLine = flag.NewFlagSet(os.Args[0], flag.ExitOnError)
+
+	// Run the main function
+	main()
+
+	// Check if the screenshot was created
+	outputFile := filepath.Join(outputDir, filepath.Base(videoFile)+"_1.png")
+	if _, err := os.Stat(outputFile); os.IsNotExist(err) {
+		t.Fatalf("Expected screenshot file %s does not exist", outputFile)
 	}
 }
 
