@@ -34,7 +34,7 @@ Once you have Go and `ffmpeg` installed, you can install ScreenshoteXTraGtor usi
 go install github.com/jjuris/sxtg
 ```
 
-To verify the installation, you can run the tests:
+To verify the installation, you can run:
 
 ```shell
 sxtg
@@ -49,17 +49,3 @@ sxtg -i example.mp4 -o screenshots -c 5 -t 10
 ```
 
 This command will extract 5 screenshots from `example.mp4` at 10-second intervals and save them in the `screenshots` directory.
-
-## Development
-
-To contribute to the development of this tool, follow these steps:
-
-* Fork the repository on GitHub.
-* Clone your forked repository to your local machine.
-* Create a new branch for your feature or bugfix.
-* Make your changes and commit them with descriptive messages.
-* Push your changes to your forked repository.
-* Create a pull request on the original repository.
-* Make sure to run the tests before submitting your pull request:
-
-Feel free to open issues for any bugs or feature requests. ```
