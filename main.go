@@ -38,6 +38,17 @@ func main() {
 		os.Exit(1)
 	}
 
+	// Check if ffmpeg is installed
+	cmd := exec.Command("ffmpeg", "-version")
+	if *debug {
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+	}
+	if err := cmd.Run(); err != nil {
+		fmt.Println("ffmpeg is not installed or not found in PATH")
+		os.Exit(1)
+	}
+
 	// Print the parsed arguments (for debugging purposes)
 	if *debug {
 		fmt.Printf("Video File: %s\n", *inputFile)
