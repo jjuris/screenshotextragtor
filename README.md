@@ -10,7 +10,7 @@ To install the tool, you need to have Go installed on your system. Additionally,
 
 Follow the instructions on the [official Go website](https://golang.org/doc/install) to install Go on your system.
 
-Or use Homebrew on macOS:
+Or simply use Homebrew on macOS:
 
 ```shell
 brew install go
