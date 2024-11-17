@@ -10,15 +10,29 @@ import (
 )
 
 func main() {
-	// Define command-line arguments
+	// Define required command-line arguments
 	inputFile := flag.String("i", "", "Input video file (required)")
+
+	// Define optional command-line arguments
 	outputDir := flag.String("o", ".", "Output directory")
 	count := flag.Int("c", 1, "Count of screenshots")
 	interval := flag.Int("t", 1, "Time interval between screenshots in seconds")
 	debug := flag.Bool("d", false, "Enable debug messages")
+
 	flag.Usage = func() {
-		fmt.Println("Usage: sxtg -i <video_file> [-o output_directory] [-c count] [-t interval] [-d]")
-		flag.PrintDefaults()
+		fmt.Println("Usage: sxtg -i <video_file> [optional arguments]")
+		fmt.Println("\nRequired:")
+		fmt.Println("  -i string")
+		fmt.Println("        Input video file (required)")
+		fmt.Println("\nOptional:")
+		fmt.Println("  -o string")
+		fmt.Println("        Output directory (default \".\")")
+		fmt.Println("  -c int")
+		fmt.Println("        Count of screenshots (default 1)")
+		fmt.Println("  -t int")
+		fmt.Println("        Time interval between screenshots in seconds (default 1)")
+		fmt.Println("  -d")
+		fmt.Println("        Enable debug messages (default false)")
 	}
 	flag.Parse()
 
