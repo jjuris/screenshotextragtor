@@ -35,7 +35,7 @@ go install github.com/jjuris/sxtg
 To verify the installation, you can run the tests:
 
 ```shell
-go test ./...
+sxtg
 ```
 
 ## Usage
@@ -43,7 +43,7 @@ go test ./...
 To use the tool, run the following command:
 
 ```shell
-./sxtg -i example.mp4 -o screenshots -c 5 -t 10
+sxtg -i example.mp4 -o screenshots -c 5 -t 10
 ```
 
 This command will extract 5 screenshots from `example.mp4` at 10-second intervals and save them in the `screenshots` directory.
