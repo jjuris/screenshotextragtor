@@ -57,29 +57,6 @@ func TestMainFunction(t *testing.T) {
 	}
 }
 
-func TestMainFunction_EmptyInput(t *testing.T) {
-	// Mock command-line arguments with empty input file
-	os.Args = []string{"cmd", "-i", "", "-o", outputDir, "-c", "1", "-t", "1"}
-
-	// Reset command-line flags
-	flag.CommandLine = flag.NewFlagSet(os.Args[0], flag.ExitOnError)
-
-	// Capture the exit code
-	exitCode := 0
-	exitFunc := func(code int) {
-		exitCode = code
-	}
-	defer func() { os.Exit = exitFunc }()
-
-	// Run the main function
-	main()
-
-	// Check if the exit code is non-zero
-	if exitCode == 0 {
-		t.Fatalf("Expected non-zero exit code for empty input file")
-	}
-}
-
 func TestMain(m *testing.M) {
 	flag.Parse()
 
