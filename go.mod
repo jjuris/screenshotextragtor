@@ -1,3 +1,3 @@
-module github.com/jjuris/screenshotextragtor
+module github.com/jjuris/sxtg
 
 go 1.22.5

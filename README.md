@@ -1,6 +1,6 @@
 # ScreenshoteXTraGtor
 
-A screenshot extractor tool written in GO lang.
+A screenshot extractor tool written in GO lang. The script automates the process of extracting multiple screenshots from a video file at specified intervals using `ffmpeg`.
 
 ## Installation
 
@@ -29,9 +29,7 @@ brew install ffmpeg
 Once you have Go and `ffmpeg` installed, you can install ScreenshoteXTraGtor using the following commands:
 
 ```shell
-go get github.com/jjuris/screenshotextragtor
-cd $GOPATH/src/github.com/jjuris/screenshotextragtor
-go install
+go install github.com/jjuris/sxtg
 ```
 
 To verify the installation, you can run the tests:
@@ -45,18 +43,7 @@ go test ./...
 To use the tool, run the following command:
 
 ```shell
-./sxtg <video_file> [output_directory] [-c count] [-i interval]
-```
-
-* `<video_file>`: The path to the video file from which to extract screenshots.
-* `[output_directory]`: (Optional) The directory where the screenshots will be saved. Defaults to the current directory.
-* `-c count`: (Optional) The number of screenshots to extract. Defaults to 1.
-* `-i interval`: (Optional) The time interval between screenshots in seconds. Defaults to 1.
-
-Example:
-
-```shell
-./sxtg example.mp4 screenshots -c 5 -i 10
+./sxtg -i example.mp4 -o screenshots -c 5 -t 10
 ```
 
 This command will extract 5 screenshots from `example.mp4` at 10-second intervals and save them in the `screenshots` directory.
