@@ -1,5 +1,7 @@
 # ScreenshoteXTraGtor
 
+![GO worklfow](https://github.com/jjuris/sxtg/actions/workflows/go.yaml/badge.svg)
+
 A screenshot extractor tool written in GO lang. The script automates the process of extracting multiple screenshots from a video file at specified intervals using [ffmpeg](https://www.ffmpeg.org).
 
 ## Installation
