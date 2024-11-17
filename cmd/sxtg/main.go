@@ -57,6 +57,10 @@ func extractScreenshot(videoFile, outputFile string, timestamp int, debug bool) 
 	if debug {
 		fmt.Printf("Extracting screenshot at %d seconds\n", timestamp)
 	}
-	cmd := exec.Command("ffmpeg", "-ss", strconv.Itoa(timestamp), "-i", videoFile, "-vframes", "1", outputFile)
+	cmd := exec.Command("ffmpeg", "-y", "-ss", strconv.Itoa(timestamp), "-i", videoFile, "-vframes", "1", "-update", "1", outputFile)
+	if debug {
+		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
+	}
 	return cmd.Run()
 }
