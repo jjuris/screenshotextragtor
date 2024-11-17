@@ -27,7 +27,11 @@ func main() {
 		flag.Usage()
 		os.Exit(1)
 	}
-
+	// Ensure the input file exists
+	if _, err := os.Stat(*inputFile); os.IsNotExist(err) {
+		fmt.Printf("Input file %s does not exist\n", *inputFile)
+		os.Exit(1)
+	}
 	// Ensure the output directory exists
 	if _, err := os.Stat(*outputDir); os.IsNotExist(err) {
 		fmt.Printf("Output directory %s does not exist\n", *outputDir)
